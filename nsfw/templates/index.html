@@ -1,0 +1,9 @@
+<html>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="file">
+        <input type="submit" value="upload">
+    </form>
+    <img src={% url "origin" %} />
+    <img src={% url "convert" %} />
+</html>
