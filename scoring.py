@@ -25,6 +25,7 @@ def score(path):
     output = chainer.functions.softmax(
         chainer.functions.convolution_2d(x, W, b))
     score = chainer.functions.resize_images(output, (h, w))[0, 1:]
+    score = chainer.functions.resize_images(output, (h, w))[0, :1]
     scored_img = np.asarray(
         np.clip((img[0] * score.data).transpose((1, 2, 0)) * 255, 0, 255),
         dtype=np.uint8)
